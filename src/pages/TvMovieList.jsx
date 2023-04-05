@@ -1,8 +1,10 @@
+import { Box } from '@chakra-ui/react';
+
 const TvMovieList = () => {
     return (
-        <div>
+        <Box>
             lista de tv shows & movies
-        </div>
+        </Box>
     )
 }
 

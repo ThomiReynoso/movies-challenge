@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import { Item } from '../components/Item';
-import { ProductGrid } from '../components/ProductGrid';
+import { ContainerGrid } from '../components/ContainerGrid';
 import { products } from '../components/_data';
 
 const TvMovieList = () => {
@@ -19,11 +19,11 @@ const TvMovieList = () => {
 					lg: '12',
 				}}
     	>
-        <ProductGrid>
+        <ContainerGrid>
           {products.map((product) => (
             <Item key={product.id} product={product} />
           ))}
-        </ProductGrid>
+        </ContainerGrid>
       </Box>
     )
 }

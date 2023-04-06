@@ -39,7 +39,7 @@ export const products = [
     flag: 'new',
     imageUrl:
       'https://image.tmdb.org/t/p/w200//oj4XM6wpGRIcx3QoQx1PF1fx5E5.jpg',
-    rating: 4,
+    rating: 3.5,
     ratingCount: 1,
     description:
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
@@ -116,7 +116,7 @@ export const products = [
 
 
 export const productDetails = [{
-  poster_path: "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+  poster_path: "https://image.tmdb.org/t/p/w200/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
   id: "1", 
   title: "Fight Club",
   overview: "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground fight clubs\ forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
@@ -127,7 +127,7 @@ export const productDetails = [{
     }
   ],
   runtime: 139, //duracion
-  vote_average: 7.8,
+  vote_average: 5,
   release_date: "1999-10-12",
   // ver si traigo actores
   similar: {

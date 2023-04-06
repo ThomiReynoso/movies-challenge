@@ -1,6 +1,9 @@
-import { Grid, GridItem, Box } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Heading, Text, VStack } from '@chakra-ui/react'
+import { Rating } from '../components/Rating';
+import { productDetails } from '../components/_data';
 
 const TvMovieDetails = () => {
+	
     return (
 			<Grid 
 				paddingX={10}
@@ -14,16 +17,25 @@ const TvMovieDetails = () => {
 				`}
 			>
 				<GridItem area={'image'}>
-					imagen
+					<Image
+            rounded={'lg'}
+            src={productDetails[0].poster_path}
+          />
 				</GridItem>
 				<GridItem area={'title'}>
-					tituloo
+					<Heading>
+						{productDetails[0].title}
+					</Heading>
 				</GridItem>
 				<GridItem area={'extra_info'}>
-					infoo
+					<VStack>
+						<Rating rating={productDetails[0].vote_average} numReviews={12}/>
+					</VStack>
 				</GridItem>
 				<GridItem area={'description'}>
-					descrip
+					<Text>
+						{productDetails[0].overview}
+					</Text>
 				</GridItem>
 				
 			</Grid>

@@ -67,7 +67,7 @@ export const Item = (props) => {
           {name}
         </Heading>
         <Stack direction={'row'} align={'center'}>
-          <Rating defaultValue={rating} size="sm" />
+          <Rating rating={rating} numReviews={12} num size="sm" />
         </Stack>
       </Stack>
     </Box>

@@ -1,19 +1,18 @@
-import { Grid, GridItem, Image, Heading, Text, HStack, StackDivider, Box } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Heading, Text, HStack, Box } from '@chakra-ui/react'
+import { ExtraInfo } from '../components/ExtraInfo';
 import { Item } from '../components/Item';
-import { Rating } from '../components/Rating';
 import { productDetails } from '../components/_data';
-import { getYearFromDate, toHoursAndMinutes } from '../utils/datetime';
 
 const TvMovieDetails = () => {
 	
     return (
 			<Box backgroundColor={"gray.50"}>
 				<Grid 
-					margin={"1rem 1rem 0rem 1rem"}
-					paddingX={10}
-					paddingY={10}
+					margin={"0.5rem 0.5rem 0rem 0.5rem"}
+					paddingX={8}
+					paddingY={8}
 					height={"45vh"}
-					gridTemplateColumns={"15% 85%"} gridTemplateRows={"repeat(3, 1fr)"} 
+					gridTemplateColumns={"15% 85%"} gridTemplateRows={"30% 30% 40%"} 
 					rowGap={0}
 					columnGap={1}
 					templateAreas={`
@@ -35,28 +34,16 @@ const TvMovieDetails = () => {
 						</Heading>
 					</GridItem>
 					<GridItem area={'extra_info'}>
-						<HStack divider={<StackDivider borderColor='gray.300' />} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
-							<Rating rating={productDetails[0].vote_average} numReviews={12}/>
-							<Text>{toHoursAndMinutes(productDetails[0].runtime)}</Text>
-							<Text>{getYearFromDate(productDetails[0].release_date)}</Text> {/*first_air_date para tv shows*/}
-						</HStack>
+						<ExtraInfo voteAverage={productDetails[0].vote_average} releaseDate={productDetails[0].release_date} genres={productDetails[0].genres} runtime={productDetails[0].runtime} />
 					</GridItem>
 					<GridItem area={'description'}>
 						<Text color={"gray.600"} >
 							{productDetails[0].overview}
 						</Text>
-						<HStack>
-							<Text fontWeight={"bold"}>
-								Genero:
-							</Text>
-							<Text>
-								{productDetails[0].genres.map(g => g.name).join(', ')}
-							</Text>
-						</HStack>
 					</GridItem>
 				</Grid>
 				<Heading ml={5}>Similares</Heading>
-				<HStack overflowX={"scroll"} whiteSpace={"nowrap"}>
+				<HStack overflowX={"scroll"} whiteSpace={"nowrap"} maxHeight={"70%"}>
 					{productDetails[0].similar.results.map(similar => (
 						<Item key={similar.id} name={similar.name} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} />
 					))}

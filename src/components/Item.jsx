@@ -13,7 +13,7 @@ import { Rating } from './Rating'
 
 export const Item = ({name, imageUrl, rating, id}) => {
   return (
-    <Center py={12}>
+    <Center py={6}>
     <chakra.a href={`/details/${id}`}>
     <Box
       role={'group'}

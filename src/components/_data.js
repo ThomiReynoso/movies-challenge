@@ -113,3 +113,65 @@ export const products = [
     images,
   },
 ]
+
+
+export const productDetails = [{
+  poster_path: "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+  id: "1", 
+  title: "Fight Club",
+  overview: "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground fight clubs\ forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+  genres: [
+    {
+      "id": 18,
+      "name": "Drama"
+    }
+  ],
+  runtime: 139, //duracion
+  vote_average: 7.8,
+  release_date: "1999-10-12",
+  // ver si traigo actores
+  similar: {
+    page: 1,
+    results: [
+      {
+        "adult": false,
+        "backdrop_path": "/fWtiHQvbZmeUr0rCrrzN9c3AmsK.jpg",
+        "genre_ids": [
+          35
+        ],
+        "id": 1509,
+        "origin_country": [
+          "US"
+        ],
+        "original_language": "en",
+        "original_name": "Hope & Faith",
+        "overview": "Hope, a down-to-earth, happily married mother of three has her tidy world turned upside down when her celebrity sister moves in. Faith was living the Hollywood life as a soap opera star before her character was killed off.",
+        "popularity": 10.348,
+        "poster_path": "/z2ysVqKDuwEDwYtipaiVOE0SZaP.jpg",
+        "first_air_date": "2003-09-23",
+        "name": "Hope & Faith",
+        "vote_average": 5.552,
+        "vote_count": 29
+      },
+      {
+        "adult": false,
+        "backdrop_path": "/w0s1EmnmgkBYMSqZIrYgbiRt3j6.jpg",
+        "genre_ids": [
+          35
+        ],
+        "id": 1558,
+        "origin_country": [
+          "US"
+        ],
+        "original_language": "en",
+        "original_name": "Home Improvement",
+        "overview": "The daily trials and tribulations of handyman Tim Taylor, a TV show host raising three boys with help from his loyal co-host, domineering wife, and unseen neighbor.",
+        "popularity": 60.145,
+        "poster_path": "/oEq3mutXzF2Gj5w9VDPIxYrxag5.jpg",
+        "first_air_date": "1991-09-17",
+        "name": "Home Improvement",
+        "vote_average": 7.453,
+        "vote_count": 496
+      }
+    ]}
+}];

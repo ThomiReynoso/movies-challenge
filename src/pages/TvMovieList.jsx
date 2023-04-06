@@ -5,20 +5,7 @@ import { products } from '../components/_data';
 
 const TvMovieList = () => {
     return (
-      <Box
-				maxWidth="7xl"
-				marginX="auto"
-				paddingX={{
-					base: '4',
-					md: '8',
-					lg: '12',
-				}}
-				paddingY={{
-					base: '6',
-					md: '8',
-					lg: '12',
-				}}
-    	>
+      <Box maxWidth="7xl" marginX="auto" paddingX={10} paddingY={10}>
         <ContainerGrid>
           {products.map((product) => (
             <Item key={product.id} product={product} />

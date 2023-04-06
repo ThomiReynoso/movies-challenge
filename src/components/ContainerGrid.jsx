@@ -3,7 +3,12 @@ import { SimpleGrid } from '@chakra-ui/react'
 export const ContainerGrid = (props) => {
   return (
     <SimpleGrid
-      columns={4}
+      columns={{
+        base: 2,
+        md: 3,
+        lg: 4,
+        xl: 4,
+      }}
       columnGap={{
         base: '4',
         md: '6',

@@ -116,6 +116,7 @@ export const products = [
 
 
 export const productDetails = [{
+  backdrop_path: "https://image.tmdb.org/t/p/original/A6uiMhZaJA6KHmzx1qTJfNMaWuf.jpg", // tiene size "original"
   poster_path: "https://image.tmdb.org/t/p/w200/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
   id: "1", 
   title: "Fight Club",
@@ -124,11 +125,15 @@ export const productDetails = [{
     {
       "id": 18,
       "name": "Drama"
+    }, 
+    {
+      "id": 19,
+      "name": "Ficcion"
     }
   ],
   runtime: 139, //duracion
   vote_average: 5,
-  release_date: "1999-10-12",
+  release_date: "1999-10-12", //first_air_date para tv shows
   // ver si traigo actores
   similar: {
     page: 1,

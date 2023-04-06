@@ -7,14 +7,15 @@ import { getYearFromDate, toHoursAndMinutes } from '../utils/datetime';
 const TvMovieDetails = () => {
 	
     return (
-			<Box>
+			<Box backgroundColor={"gray.50"}>
 				<Grid 
 					margin={"1rem 1rem 0rem 1rem"}
 					paddingX={10}
 					paddingY={10}
-					height={"50vh"}
-					gridTemplateColumns={"20% 80%"} gridTemplateRows={"repeat(3, 1fr)"} 
+					height={"45vh"}
+					gridTemplateColumns={"15% 85%"} gridTemplateRows={"repeat(3, 1fr)"} 
 					rowGap={0}
+					columnGap={1}
 					templateAreas={`
 						"image title"
 						"image extra_info"
@@ -25,6 +26,7 @@ const TvMovieDetails = () => {
 						<Image
 							rounded={'lg'}
 							src={productDetails[0].poster_path}
+							maxHeight={"100%"}
 						/>
 					</GridItem>
 					<GridItem area={'title'}>
@@ -33,14 +35,14 @@ const TvMovieDetails = () => {
 						</Heading>
 					</GridItem>
 					<GridItem area={'extra_info'}>
-						<HStack divider={<StackDivider borderColor='gray.200' />} spacing={4}>
+						<HStack divider={<StackDivider borderColor='gray.300' />} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
 							<Rating rating={productDetails[0].vote_average} numReviews={12}/>
 							<Text>{toHoursAndMinutes(productDetails[0].runtime)}</Text>
 							<Text>{getYearFromDate(productDetails[0].release_date)}</Text> {/*first_air_date para tv shows*/}
 						</HStack>
 					</GridItem>
 					<GridItem area={'description'}>
-						<Text>
+						<Text color={"gray.600"} >
 							{productDetails[0].overview}
 						</Text>
 						<HStack>

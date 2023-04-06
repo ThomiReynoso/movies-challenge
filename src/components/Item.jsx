@@ -11,9 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { Rating } from './Rating'
 
-export const Item = (props) => {
-  const { product } = props
-  const { name, imageUrl, rating, id } = product
+export const Item = ({name, imageUrl, rating, id}) => {
   return (
     <Center py={12}>
     <chakra.a href={`/details/${id}`}>

@@ -8,7 +8,7 @@ const TvMovieList = () => {
       <Box maxWidth="7xl" marginX="auto" paddingX={10} paddingY={10}>
         <ContainerGrid>
           {products.map((product) => (
-            <Item key={product.id} product={product} />
+            <Item key={product.id} name={product.name} imageUrl={product.imageUrl} rating={product.rating} id={product.id} />
           ))}
         </ContainerGrid>
       </Box>

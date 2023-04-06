@@ -38,7 +38,7 @@ export const products = [
     price: 199,
     flag: 'new',
     imageUrl:
-      'https://images.unsplash.com/photo-1602024242516-fbc9d4fda4b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+      'https://image.tmdb.org/t/p/w200//oj4XM6wpGRIcx3QoQx1PF1fx5E5.jpg',
     rating: 4,
     ratingCount: 1,
     description:
@@ -75,6 +75,32 @@ export const products = [
   },
   {
     id: '4',
+    name: 'Silve wolf',
+    currency: 'GBP',
+    price: 199,
+    imageUrl:
+      'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=680&q=80',
+    rating: 5,
+    ratingCount: 1,
+    description:
+      'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
+    images,
+  },
+  {
+    id: '5',
+    name: 'Silve wolf',
+    currency: 'GBP',
+    price: 199,
+    imageUrl:
+      'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=680&q=80',
+    rating: 5,
+    ratingCount: 1,
+    description:
+      'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
+    images,
+  },
+  {
+    id: '6',
     name: 'Silve wolf',
     currency: 'GBP',
     price: 199,

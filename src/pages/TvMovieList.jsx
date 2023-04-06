@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { ProductCard } from '../components/ProductCard';
+import { Item } from '../components/Item';
 import { ProductGrid } from '../components/ProductGrid';
 import { products } from '../components/_data';
 
@@ -21,7 +21,7 @@ const TvMovieList = () => {
       >
         <ProductGrid>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <Item key={product.id} product={product} />
           ))}
         </ProductGrid>
       </Box>

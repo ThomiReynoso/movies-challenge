@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import { ProductCard } from './ProductCard'
+import { ProductCard } from './Item'
 import { products } from './_data'
 import { ProductGrid } from './ProductGrid'
 

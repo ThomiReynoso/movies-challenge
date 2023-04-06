@@ -5,20 +5,20 @@ import { products } from '../components/_data';
 
 const TvMovieList = () => {
     return (
-        <Box
-        maxW="7xl"
-        mx="auto"
-        px={{
-          base: '4',
-          md: '8',
-          lg: '12',
-        }}
-        py={{
-          base: '6',
-          md: '8',
-          lg: '12',
-        }}
-      >
+      <Box
+				maxWidth="7xl"
+				marginX="auto"
+				paddingX={{
+					base: '4',
+					md: '8',
+					lg: '12',
+				}}
+				paddingY={{
+					base: '6',
+					md: '8',
+					lg: '12',
+				}}
+    	>
         <ProductGrid>
           {products.map((product) => (
             <Item key={product.id} product={product} />

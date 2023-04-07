@@ -1,8 +1,7 @@
 export const boxContainer = {
     role:'group',
     p:6,
-    maxW:'330px',
-    w:'full',
+    width:'full',
     bg:"white",
     boxShadow:'2xl',
     rounded:'lg',

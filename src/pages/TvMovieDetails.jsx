@@ -49,7 +49,7 @@ const TvMovieDetails = () => {
 						</GridItem>
 					</Grid>
 					<Heading ml={5}>Similares</Heading>
-					<HStack sx={tvMovieDetailsStyles.similarStack}>
+					<HStack sx={tvMovieDetailsStyles.similarStack} spacing={4}>
 						{movie.similar.results.map(similar => (
 							<Item key={similar.id} name={similar.title || similar.name} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} totalReviews={similar.vote_count} />
 						))}

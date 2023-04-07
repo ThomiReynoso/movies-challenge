@@ -20,7 +20,7 @@ interface ItemProps {
 
 export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
   return (
-    <Center py={6}>
+    <Center py={6} minWidth={"14rem"} minHeight={"20rem"}>
       <chakra.a href={`/details/${id}`}>
         <Box sx={boxContainer}>
           <Box sx={boxInside(getImageUrl("w200", imageUrl))} >
@@ -33,7 +33,7 @@ export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
             />
           </Box>
           <Stack pt={10} align={'center'}>
-            <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
+            <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500} whiteSpace={"normal"}>
               {name}
             </Heading>
             <Stack direction={'row'} align={'center'}>

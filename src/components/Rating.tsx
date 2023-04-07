@@ -33,7 +33,7 @@ export function Rating({ rating, numReviews }: RatingProps) {
         </HStack> 
       </Box>
       <Box ml="2" color="gray.600" fontSize={"sm"}>
-        {rating} avg of {numReviews} review{numReviews > 1 && 's'}
+        {rating} of {numReviews} review{numReviews > 1 && 's'}
       </Box>
     </VStack>
   );

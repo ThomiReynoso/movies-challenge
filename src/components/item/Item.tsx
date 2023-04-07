@@ -19,27 +19,27 @@ interface ItemProps {
 export const Item = ({name, imageUrl, rating, id}: ItemProps) => {
   return (
     <Center py={6}>
-    <chakra.a href={`/details/${id}`}>
-    <Box sx={boxContainer}>
-      <Box sx={boxInside(imageUrl)} >
-        <Image
-          rounded={'lg'}
-          height={230}
-          width={282}
-          objectFit={'contain'}
-          src={imageUrl}
-        />
-      </Box>
-      <Stack pt={10} align={'center'}>
-        <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
-          {name}
-        </Heading>
-        <Stack direction={'row'} align={'center'}>
-          <Rating rating={rating} numReviews={12} />
-        </Stack>
-      </Stack>
-    </Box>
-    </chakra.a>
+      <chakra.a href={`/details/${id}`}>
+        <Box sx={boxContainer}>
+          <Box sx={boxInside(imageUrl)} >
+            <Image
+              rounded={'lg'}
+              height={230}
+              width={282}
+              objectFit={'contain'}
+              src={imageUrl}
+            />
+          </Box>
+          <Stack pt={10} align={'center'}>
+            <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
+              {name}
+            </Heading>
+            <Stack direction={'row'} align={'center'}>
+              <Rating rating={rating} numReviews={12} />
+            </Stack>
+          </Stack>
+        </Box>
+      </chakra.a>
   </Center>
   )
 }

@@ -2,25 +2,13 @@ import { Grid, GridItem, Image, Heading, Text, HStack, Box } from '@chakra-ui/re
 import { ExtraInfo } from '../components/ExtraInfo';
 import { Item } from '../components/Item';
 import { productDetails } from '../components/_data';
+import { tvMovieDetailsStyles } from './styles'
 
 const TvMovieDetails = () => {
 	
     return (
 			<Box backgroundColor={"gray.50"}>
-				<Grid 
-					margin={"0.5rem 0.5rem 0rem 0.5rem"}
-					paddingX={8}
-					paddingY={8}
-					height={"45vh"}
-					gridTemplateColumns={"15% 85%"} gridTemplateRows={"30% 30% 40%"} 
-					rowGap={0}
-					columnGap={1}
-					templateAreas={`
-						"image title"
-						"image extra_info"
-						"image description"
-					`}
-				>
+				<Grid sx={tvMovieDetailsStyles.gridContainer} >
 					<GridItem area={'image'}>
 						<Image
 							rounded={'lg'}
@@ -43,7 +31,7 @@ const TvMovieDetails = () => {
 					</GridItem>
 				</Grid>
 				<Heading ml={5}>Similares</Heading>
-				<HStack overflowX={"scroll"} whiteSpace={"nowrap"} maxHeight={"70%"}>
+				<HStack sx={tvMovieDetailsStyles.similarStack}>
 					{productDetails[0].similar.results.map(similar => (
 						<Item key={similar.id} name={similar.name} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} />
 					))}

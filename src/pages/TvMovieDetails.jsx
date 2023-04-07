@@ -1,7 +1,6 @@
 import { Grid, GridItem, Image, Heading, Text, HStack, Box } from '@chakra-ui/react'
 import { ExtraInfo } from '../components/ExtraInfo';
 import { Item } from '../components/item/Item';
-import { productDetails } from '../components/_data';
 import { tvMovieDetailsStyles } from './styles'
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -37,7 +36,7 @@ const TvMovieDetails = () => {
 						</GridItem>
 						<GridItem area={'title'}>
 							<Heading>
-								{movie.title}
+								{movie.title || movie.name}
 							</Heading>
 						</GridItem>
 						<GridItem area={'extra_info'}>
@@ -52,7 +51,7 @@ const TvMovieDetails = () => {
 					<Heading ml={5}>Similares</Heading>
 					<HStack sx={tvMovieDetailsStyles.similarStack}>
 						{movie.similar.results.map(similar => (
-							<Item key={similar.id} name={similar.name || similar.title} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} totalReviews={similar.vote_count} />
+							<Item key={similar.id} name={similar.title || similar.name} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} totalReviews={similar.vote_count} />
 						))}
 					</HStack>
 				</Box>

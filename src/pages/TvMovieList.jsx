@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { Item } from '../components/Item';
+import { Item } from '../components/item/Item';
 import { ContainerGrid } from '../components/ContainerGrid';
 import { products } from '../components/_data';
 import { tvMovieListStyles } from './styles';

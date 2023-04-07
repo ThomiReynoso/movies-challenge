@@ -1,6 +1,6 @@
 import { Grid, GridItem, Image, Heading, Text, HStack, Box } from '@chakra-ui/react'
 import { ExtraInfo } from '../components/ExtraInfo';
-import { Item } from '../components/Item';
+import { Item } from '../components/item/Item';
 import { productDetails } from '../components/_data';
 import { tvMovieDetailsStyles } from './styles'
 

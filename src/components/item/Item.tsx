@@ -6,6 +6,7 @@ import {
   Image,
   chakra,
 } from '@chakra-ui/react';
+import { NO_IMG_URL } from '../../utils/constants';
 import { getImageUrl } from '../../utils/images';
 import { Rating } from '../Rating';
 import { boxContainer, boxInside } from './styles';
@@ -23,13 +24,13 @@ export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
     <Center py={6} minWidth={"14rem"} minHeight={"20rem"}>
       <chakra.a href={`/details/${id}`}>
         <Box sx={boxContainer}>
-          <Box sx={boxInside(getImageUrl("w200", imageUrl))} >
+          <Box sx={boxInside(imageUrl ? getImageUrl("w200", imageUrl) : NO_IMG_URL )} >
             <Image
               rounded={'lg'}
               height={230}
               width={282}
               objectFit={'contain'}
-              src={getImageUrl("w200", imageUrl)}
+              src={imageUrl ? getImageUrl("w200", imageUrl) : NO_IMG_URL}
             />
           </Box>
           <Stack pt={10} align={'center'}>

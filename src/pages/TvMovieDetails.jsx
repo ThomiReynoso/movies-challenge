@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovie } from '../services/movie.service';
 import { getImageUrl } from '../utils/images';
+import { NO_IMG_URL } from '../utils/constants';
 
 const TvMovieDetails = () => {
 	const { id } = useParams();
@@ -30,7 +31,7 @@ const TvMovieDetails = () => {
 						<GridItem area={'image'}>
 							<Image
 								rounded={'lg'}
-								src={getImageUrl("w200", movie.poster_path)}
+								src={movie.poster_path ? getImageUrl("w200", movie.poster_path) : NO_IMG_URL}
 								maxHeight={"100%"}
 							/>
 						</GridItem>

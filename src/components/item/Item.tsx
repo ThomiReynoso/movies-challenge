@@ -9,7 +9,14 @@ import {
 import { Rating } from '../Rating';
 import { boxContainer, boxInside } from './styles';
 
-export const Item = ({name, imageUrl, rating, id}) => {
+interface ItemProps {
+  name: string;
+  imageUrl: string;
+  rating: number;
+  id: number;
+}
+
+export const Item = ({name, imageUrl, rating, id}: ItemProps) => {
   return (
     <Center py={6}>
     <chakra.a href={`/details/${id}`}>
@@ -28,7 +35,7 @@ export const Item = ({name, imageUrl, rating, id}) => {
           {name}
         </Heading>
         <Stack direction={'row'} align={'center'}>
-          <Rating rating={rating} numReviews={12} num size="sm" />
+          <Rating rating={rating} numReviews={12} />
         </Stack>
       </Stack>
     </Box>

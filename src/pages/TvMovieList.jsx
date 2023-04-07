@@ -25,7 +25,7 @@ const TvMovieList = () => {
         <Box sx={tvMovieListStyles.boxContainer}>
           <ContainerGrid>
             {movies.map((movie) => (
-              <Item key={movie.id} name={similar.title || similar.name} imageUrl={movie.poster_path} rating={movie.vote_average} totalReviews={movie.vote_count} id={movie.id} />
+              <Item key={movie.id} name={movie.title || movie.name} imageUrl={movie.poster_path} rating={movie.vote_average} totalReviews={movie.vote_count} id={movie.id} />
               ))}
           </ContainerGrid>
         </Box>

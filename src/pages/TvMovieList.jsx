@@ -4,7 +4,7 @@ import { ContainerGrid } from '../components/ContainerGrid';
 import { products } from '../components/_data';
 import { tvMovieListStyles } from './styles';
 import { useEffect, useState } from 'react';
-import { fetchPopularMovies } from '../services/movie.service';
+import { fetchPopularMovies, fetchPopularTvShows } from '../services/movie.service';
 
 const TvMovieList = () => {
   const [ movies, setMovies] = useState([]);

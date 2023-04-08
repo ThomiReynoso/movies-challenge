@@ -11,7 +11,7 @@ import { ItemKind } from '../interfaces/itemKind.enum';
 
 const TvMovieList = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [ items, setItems ] = useState([]);
+  const [items, setItems] = useState([]);
   const dispatch = useDispatch();
   const listType = useSelector((state) => state.listType);
   const movies = useSelector((state) => state.movies);
@@ -19,35 +19,28 @@ const TvMovieList = () => {
 
   async function getPopularMovies() {
     const moviesResponse = await fetchPopularMovies();
-    //setMovies(moviesResponse.results);
     dispatch(setMovies(moviesResponse.results));
     setItems(moviesResponse.results)
   }
-  
-  async function fetchTVShows() {
-    const showsResponse = await fetchPopularTvShows();
 
+  async function getPopularTVShows() {
+    const showsResponse = await fetchPopularTvShows();
     dispatch(setTVShows(showsResponse.results))
   }
 
-  // useEffect(() => {
-  //   getPopularMovies();
-  // }, [])
-
   useEffect(() => {
-    // Fetch the data from APIs only once
     getPopularMovies();
-    fetchTVShows();
+    getPopularTVShows();
     setIsLoading(false);
   }, []);
 
   const toggleList = () => {
-    const newListType = listType === ItemKind.Kind.Movies ? ItemKind.Kind.TvShows : ItemKind.Kind.Movies;
-    dispatch(setItemKind(newListType));
-    if( newListType === ItemKind.Kind.Movies) {
-      setItems(movies)
+    const newItemKind = listType === ItemKind.Kind.Movies ? ItemKind.Kind.TvShows : ItemKind.Kind.Movies;
+    dispatch(setItemKind(newItemKind));
+    if(newItemKind === ItemKind.Kind.Movies) {
+      setItems(movies);
     } else {
-      setItems(tvShows)
+      setItems(tvShows);
     }
   };
   
@@ -57,8 +50,8 @@ const TvMovieList = () => {
         <Box sx={tvMovieListStyles.boxContainer}>
            <Button onClick={toggleList}>Switch List</Button>
           <ContainerGrid>
-            {items.map((movie) => (
-              <Item key={movie.id} name={movie.title || movie.name} imageUrl={movie.poster_path} rating={movie.vote_average} totalReviews={movie.vote_count} id={movie.id} />
+            {items.map((item) => (
+              <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
             ))}
           </ContainerGrid>
         </Box>

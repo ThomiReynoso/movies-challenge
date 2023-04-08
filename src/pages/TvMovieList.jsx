@@ -49,7 +49,7 @@ const TvMovieList = () => {
     <>
       {!isLoading &&
         <Box sx={tvMovieListStyles.boxContainer}>
-           <Button onClick={toggleList}>Switch List</Button>
+           <Button onClick={toggleList}>{ itemKind === ItemKind.Kind.Movies ? "List TV Shows" : "List Movies"}</Button>
           <ContainerGrid>
             {items.map((item) => (
               <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />

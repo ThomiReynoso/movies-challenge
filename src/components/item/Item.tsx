@@ -37,9 +37,11 @@ export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
             <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500} whiteSpace={"normal"}>
               {name}
             </Heading>
-            <Stack direction={'row'} align={'center'}>
-              <Rating rating={rating} numReviews={totalReviews} />
-            </Stack>
+            {rating &&
+              <Stack direction={'row'} align={'center'}>
+                <Rating rating={rating} numReviews={totalReviews} />
+              </Stack>
+            }
           </Stack>
         </Box>
       </chakra.a>

@@ -1,8 +1,9 @@
+import { ItemKind } from '../../interfaces/itemKind.enum';
 import { SET_ITEM_KIND } from '../actions/itemKinds';
 
-const initialState = 'movies';
+const initialState = ItemKind.Kind.Movies;
 
-const itemKindReducer = (state = initialState, action: any) => {
+const itemKindReducer = (state: ItemKind.Kind = initialState, action: any) => {
   switch (action.type) {
     case SET_ITEM_KIND:
       return action.payload;

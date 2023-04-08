@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { fetchPopularMovies, fetchPopularTvShows } from '../services/movie.service';
 import { useDispatch, useSelector } from 'react-redux';
 import { setItemKind, setMovies, setTVShows } from '../redux/actions/Index';
+import { ItemKind } from '../interfaces/itemKind.enum';
 
 
 const TvMovieList = () => {
@@ -41,9 +42,9 @@ const TvMovieList = () => {
   }, []);
 
   const toggleList = () => {
-    const newListType = listType === 'movies' ? 'tvShows' : 'movies';
+    const newListType = listType === ItemKind.Kind.Movies ? ItemKind.Kind.TvShows : ItemKind.Kind.Movies;
     dispatch(setItemKind(newListType));
-    if( newListType === 'movies') {
+    if( newListType === ItemKind.Kind.Movies) {
       setItems(movies)
     } else {
       setItems(tvShows)

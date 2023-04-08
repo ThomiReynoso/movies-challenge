@@ -31,6 +31,7 @@ const TvMovieList = () => {
   useEffect(() => {
     getPopularMovies();
     getPopularTVShows();
+    dispatch(setItemKind(ItemKind.Kind.Movies));
     setIsLoading(false);
   }, []);
 

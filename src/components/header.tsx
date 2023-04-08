@@ -2,12 +2,13 @@ import {
     Box,
     Flex,
     HStack,
-    Link,
     IconButton,
     useDisclosure,
+    Text,
   } from '@chakra-ui/react';
   import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-  
+  import { Link } from "react-router-dom";
+
   export default function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     
@@ -22,7 +23,9 @@ import {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <Link href='/' fontWeight={'bold'} color={"white"}>MOVIES & TV SHOWS</Link>
+              <Link to='/'>
+                <Text fontWeight={'bold'} color={"white"}>MOVIES & TV SHOWS</Text>
+              </Link>
             </HStack>
           </Flex>
         </Box>

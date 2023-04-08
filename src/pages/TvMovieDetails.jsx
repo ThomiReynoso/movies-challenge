@@ -30,7 +30,6 @@ const TvMovieDetails = () => {
 	}
 
 	useEffect(() => {
-		debugger
 		if (itemKind === ItemKind.Kind.Movies) {
 			getMovie();
 		} else {

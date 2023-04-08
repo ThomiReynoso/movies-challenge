@@ -4,7 +4,7 @@ import movieReducer from './movieReducer';
 import tvShowReducer from './tvShowReducer';
 
 export default combineReducers({
-  listType: itemKindReducer,
+  itemKind: itemKindReducer,
   movies: movieReducer,
   tvShows: tvShowReducer,
 });

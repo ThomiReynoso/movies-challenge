@@ -10,6 +10,7 @@ import { NO_IMG_URL } from '../../utils/constants';
 import { getImageUrl } from '../../utils/images';
 import { Rating } from '../Rating';
 import { boxContainer, boxInside } from './styles';
+import { Link } from "react-router-dom";
 
 interface ItemProps {
   name: string;
@@ -22,7 +23,7 @@ interface ItemProps {
 export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
   return (
     <Center py={6} minWidth={"14rem"} minHeight={"20rem"}>
-      <chakra.a href={`/details/${id}`}>
+      <Link to={`/details/${id}`}>
         <Box sx={boxContainer}>
           <Box sx={boxInside(imageUrl ? getImageUrl("w200", imageUrl) : NO_IMG_URL )} >
             <Image
@@ -44,7 +45,7 @@ export const Item = ({name, imageUrl, rating, totalReviews, id}: ItemProps) => {
             }
           </Stack>
         </Box>
-      </chakra.a>
+      </Link>
   </Center>
   )
 }

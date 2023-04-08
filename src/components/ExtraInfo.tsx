@@ -7,15 +7,17 @@ interface ExtraInfoProps {
     runtime: number;
     releaseDate: string;
     genres: any[];
+    amountSeasons: number;
 }
 
-export const ExtraInfo = ({voteAverage, runtime, releaseDate, genres}: ExtraInfoProps ) => {
+export const ExtraInfo = ({voteAverage, runtime, releaseDate, genres, amountSeasons}: ExtraInfoProps ) => {
     return (
     <HStack divider={<StackDivider borderColor='gray.300' />} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
         <Rating rating={voteAverage} numReviews={12}/>
-        <Text>{toHoursAndMinutes(runtime)}</Text>
-        <Text>{getYearFromDate(releaseDate)}</Text> {/*first_air_date para tv shows*/}
+        {runtime && <Text>{toHoursAndMinutes(runtime)}</Text>}
+        <Text>{getYearFromDate(releaseDate)}</Text>
         <Text>{genres.map(g => g.name).join(', ')}</Text>
+        {amountSeasons && <Text>{amountSeasons} {amountSeasons === 1 ? "Season" : "Seasons"}</Text>}
     </HStack>
     )
 }

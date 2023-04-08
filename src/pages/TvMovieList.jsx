@@ -13,7 +13,7 @@ const TvMovieList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [items, setItems] = useState([]);
   const dispatch = useDispatch();
-  const listType = useSelector((state) => state.listType);
+  const itemKind = useSelector((state) => state.itemKind);
   const movies = useSelector((state) => state.movies);
   const tvShows = useSelector((state) => state.tvShows);
 
@@ -35,7 +35,7 @@ const TvMovieList = () => {
   }, []);
 
   const toggleList = () => {
-    const newItemKind = listType === ItemKind.Kind.Movies ? ItemKind.Kind.TvShows : ItemKind.Kind.Movies;
+    const newItemKind = itemKind === ItemKind.Kind.Movies ? ItemKind.Kind.TvShows : ItemKind.Kind.Movies;
     dispatch(setItemKind(newItemKind));
     if(newItemKind === ItemKind.Kind.Movies) {
       setItems(movies);

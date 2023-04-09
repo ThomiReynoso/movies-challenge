@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import { Item } from '../components/item/Item';
 import { ContainerGrid } from '../components/ContainerGrid';
 import { tvMovieListStyles } from './styles';
@@ -49,7 +49,14 @@ const TvMovieList = () => {
     <>
       {!isLoading &&
         <Box sx={tvMovieListStyles.boxContainer}>
-           <Button onClick={toggleList}>{ itemKind === ItemKind.Kind.Movies ? "List TV Shows" : "List Movies"}</Button>
+          <Flex justifyContent={"space-between"} marginBottom={"1rem"}>
+            <Heading>Popular
+              <Text as={"span"} color={"green.500"}>{itemKind === ItemKind.Kind.Movies ? " Movies" : " TV Shows"}</Text>
+            </Heading>
+            <Button onClick={toggleList} variant={"outline"} colorScheme={'green'} rounded={'full'} px={6}  _hover={{ bg: 'green.500', color: 'white'}}>
+              {itemKind === ItemKind.Kind.Movies ? "List TV Shows" : "List Movies"}
+            </Button>
+          </Flex>
           <ContainerGrid>
             {items.map((item) => (
               <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />

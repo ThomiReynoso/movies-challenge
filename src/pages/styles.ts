@@ -5,7 +5,7 @@ export const tvMovieDetailsStyles = {
         paddingY:"8",
         height:"50vh",
         gridTemplateColumns:"15% 85%",
-        gridTemplateRows:"30% 20% 30% 20%", 
+        gridTemplateRows:"30% 25% 30% 15%", 
         rowGap:"0",
         columnGap:"4",
         gridTemplateAreas:`

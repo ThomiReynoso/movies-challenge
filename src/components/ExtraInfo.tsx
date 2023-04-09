@@ -13,7 +13,7 @@ interface ExtraInfoProps {
 
 export const ExtraInfo = ({voteAverage, totalVotes, runtime, releaseDate, genres, amountSeasons}: ExtraInfoProps ) => {
     return (
-    <HStack divider={<StackDivider borderColor='gray.300' />} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
+    <HStack divider={<StackDivider borderColor='gray.300' />} boxShadow={"lg"} padding={"0.5rem"} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
         <Rating rating={voteAverage} numReviews={totalVotes}/>
         {runtime && <Text>{toHoursAndMinutes(runtime)}</Text>}
         <Text>{getYearFromDate(releaseDate)}</Text>

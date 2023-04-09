@@ -21,14 +21,14 @@ export function Rating({ rating, numReviews }: RatingProps) {
                   <BsStarFill
                     key={i}
                     style={{ marginLeft: '1' }}
-                    color={i < rating ? 'teal.500' : 'gray.300'}
+                    color={i < rating ? 'gold' : 'gray.300'}
                   />
                 );
               }
               if (roundedRating - i === 0.5) {
-                return <BsStarHalf key={i} style={{ marginLeft: '1' }} />;
+                return <BsStarHalf key={i} style={{ color:"gold", marginLeft: '1' }} />;
               }
-              return <BsStar key={i} style={{ marginLeft: '1' }} />;
+              return <BsStar key={i} style={{ color:"gold", marginLeft: '1' }} />;
             })}
         </HStack> 
       </Box>

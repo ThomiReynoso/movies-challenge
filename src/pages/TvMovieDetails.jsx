@@ -55,7 +55,7 @@ const TvMovieDetails = () => {
 							</Heading>
 						</GridItem>
 						<GridItem area={'extra_info'}>
-							<ExtraInfo voteAverage={item.vote_average} releaseDate={item.release_date || item.first_air_date} genres={item.genres} runtime={item.runtime} amountSeasons={item.seasons?.length}/>
+							<ExtraInfo voteAverage={item.vote_average} totalVotes={item.vote_count} releaseDate={item.release_date || item.first_air_date} genres={item.genres} runtime={item.runtime} amountSeasons={item.seasons?.length}/>
 						</GridItem>
 						<GridItem area={'description'}>
 							<Text color={"gray.600"} >

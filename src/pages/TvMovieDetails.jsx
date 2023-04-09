@@ -1,4 +1,4 @@
-import { Grid, GridItem, Image, Heading, Text, HStack, Box } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Heading, Text, HStack, Box, List, ListItem } from '@chakra-ui/react'
 import { ExtraInfo } from '../components/ExtraInfo';
 import { Item } from '../components/item/Item';
 import { tvMovieDetailsStyles } from './styles'
@@ -15,7 +15,7 @@ const TvMovieDetails = () => {
 	const [ item, setItem ] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const itemKind = useSelector((state) => state.itemKind);
-
+	const MAX_ACTORS_SHOWED = 10;
   
 	async function getMovie() {
 	  const movie = await fetchMovie(id);
@@ -46,29 +46,29 @@ const TvMovieDetails = () => {
 							<Image
 								rounded={'lg'}
 								src={item.poster_path ? getImageUrl("w200", item.poster_path) : NO_IMG_URL}
-								maxHeight={"100%"}
+								height={"100%"}
 							/>
 						</GridItem>
 						<GridItem area={'title'}>
-							<Heading>
-								{item.title || item.name}
-							</Heading>
+							<Heading>{item.title || item.name}</Heading>
+							<Text fontSize={"lg"} color={"gray.500"}>{item.original_title || item.original_name}</Text>
 						</GridItem>
 						<GridItem area={'extra_info'}>
 							<ExtraInfo voteAverage={item.vote_average} totalVotes={item.vote_count} releaseDate={item.release_date || item.first_air_date} genres={item.genres} runtime={item.runtime} amountSeasons={item.seasons?.length}/>
 						</GridItem>
 						<GridItem area={'description'}>
-							<Text color={"gray.600"} >
+							<Text color={"gray.600"} noOfLines={4}>
 								{item.overview}
 							</Text>
-							<Text>
-								{item.credits.cast.slice(0,10).map(cast => (cast.name)).join(', ')}
-							</Text>
+						</GridItem>
+						<GridItem area={"actors"}>
+							<Text as={"span"} fontWeight={"bold"}>Actors:</Text>{' '}
+							{item.credits.cast.slice(0,MAX_ACTORS_SHOWED).map(cast => (cast.name)).join(', ')}
 						</GridItem>
 					</Grid>
 					{item.similar.results.length > 0 && 
 						<>
-							<Heading ml={5}>Similares</Heading>
+							<Heading ml={5}>Similars</Heading>
 							<HStack sx={tvMovieDetailsStyles.similarStack} spacing={4}>
 								{item.similar.results.map(similar => (
 									<Item key={similar.id} name={similar.title || similar.name} imageUrl={similar.poster_path} rating={similar.vote_average} id={similar.id} totalReviews={similar.vote_count} />

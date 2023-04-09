@@ -3,15 +3,16 @@ export const tvMovieDetailsStyles = {
         margin:"0.5rem 0.5rem 0rem 0.5rem",
         paddingX:"8",
         paddingY:"8",
-        height:"45vh",
+        height:"50vh",
         gridTemplateColumns:"15% 85%",
-        gridTemplateRows:"30% 30% 40%", 
+        gridTemplateRows:"30% 20% 30% 20%", 
         rowGap:"0",
-        columnGap:"1",
+        columnGap:"4",
         gridTemplateAreas:`
             "image title"
             "image extra_info"
             "image description"
+            "image actors"
         `,
     },
     similarStack : {

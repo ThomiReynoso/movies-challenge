@@ -7,8 +7,8 @@ import Header from './components/header';
 function App() {
   return (
     <>
-      <Header/>
       <BrowserRouter>
+        <Header/>
         <Routes>
           <Route path="/" element={<TvMovieList />} />
           <Route path="/details/:id" element={<TvMovieDetails />} />

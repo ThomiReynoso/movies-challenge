@@ -2,6 +2,7 @@ export const boxContainer = {
     role:'group',
     p:6,
     width:'full',
+    minHeight: "23rem",
     bg:"white",
     boxShadow:'2xl',
     rounded:'lg',

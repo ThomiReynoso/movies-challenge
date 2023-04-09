@@ -24,7 +24,7 @@ export async function fetchPopularTvShows() {
 
 export async function fetchTvShow(id: number) {
     try {
-      const response = await fetch(`${TV_SHOW_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar`);
+      const response = await fetch(`${TV_SHOW_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar,credits`);
       if (response.ok) {
         return await response.json();
       }
@@ -35,7 +35,7 @@ export async function fetchTvShow(id: number) {
 
 export async function fetchMovie(id: number) {
     try {
-      const response = await fetch(`${MOVIE_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar`);
+      const response = await fetch(`${MOVIE_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar,credits`);
       if (response.ok) {
         return await response.json();
       }

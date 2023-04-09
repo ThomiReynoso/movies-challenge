@@ -7,6 +7,7 @@ import { fetchPopularMovies, fetchPopularTvShows } from '../services/movie.servi
 import { useDispatch, useSelector } from 'react-redux';
 import { setItemKind, setMovies, setTVShows } from '../redux/actions/Index';
 import { ItemKind } from '../interfaces/itemKind.enum';
+import { TitleButtonList } from '../components/TitleButtonList';
 
 
 const TvMovieList = () => {
@@ -49,14 +50,7 @@ const TvMovieList = () => {
     <>
       {!isLoading &&
         <Box sx={tvMovieListStyles.boxContainer}>
-          <Flex justifyContent={"space-between"} marginBottom={"1rem"}>
-            <Heading>Popular
-              <Text as={"span"} color={"green.500"}>{itemKind === ItemKind.Kind.Movies ? " Movies" : " TV Shows"}</Text>
-            </Heading>
-            <Button onClick={toggleList} variant={"outline"} colorScheme={'green'} rounded={'full'} px={6}  _hover={{ bg: 'green.500', color: 'white'}}>
-              {itemKind === ItemKind.Kind.Movies ? "List TV Shows" : "List Movies"}
-            </Button>
-          </Flex>
+          <TitleButtonList itemKind={itemKind} toggleList={toggleList}/>
           <ContainerGrid>
             {items.map((item) => (
               <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />

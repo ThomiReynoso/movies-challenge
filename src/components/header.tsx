@@ -5,6 +5,7 @@ import {
     IconButton,
     useDisclosure,
     Text,
+    Button,
   } from '@chakra-ui/react';
   import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
   import { Link } from "react-router-dom";
@@ -23,9 +24,8 @@ import {
               onClick={isOpen ? onClose : onOpen}
             />
             <HStack spacing={8} alignItems={'center'}>
-              <Link to='/'>
-                <Text fontWeight={'bold'} color={"white"}>MOVIES & TV SHOWS</Text>
-              </Link>
+              <Link to='/'> <Text fontWeight={'bold'} color={"white"}>MOVIES & TV SHOWS</Text></Link>
+              <Link to='/'> <Button variant={"outline"} size={"sm"} color={"white"} _hover={{ bg:"white", color: "black" }}>Home</Button></Link>
             </HStack>
           </Flex>
         </Box>

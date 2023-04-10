@@ -1,9 +1,32 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import App from './App';
+import { ItemKind } from './interfaces/itemKind.enum';
+import { mockStore } from './tests/mocks/redux-mock-store';
+import { Provider } from 'react-redux';
+import { fetchPopularMovies, fetchPopularTvShows } from './tests/mocks/api-mock';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+jest.mock('./services/movie.service', () => ({
+  fetchPopularMovies: () => fetchPopularMovies(),
+  fetchPopularTvShows: () => fetchPopularTvShows(),
+}));
+
+test('renders popular movies title', async () => {
+  const initialState = {
+    itemKind: ItemKind.Kind.Movies,
+    movies: [],
+    tvShows: [],
+  };
+  const store = mockStore(initialState);
+
+   // I need to wrapp the component in act because it was throwing a warning when running tests
+   await act(async () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  });
+  const linkElement = screen.getByText(/popular/i);
   expect(linkElement).toBeInTheDocument();
 });

@@ -31,6 +31,7 @@ const TvMovieDetails = () => {
 	}
 
 	useEffect(() => {
+		setIsLoading(true)
 		if (itemKind === ItemKind.Kind.Movies) {
 			getMovie();
 		} else {

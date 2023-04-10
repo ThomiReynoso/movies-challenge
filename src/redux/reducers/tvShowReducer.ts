@@ -1,8 +1,10 @@
+import { TVShow } from '../../interfaces/TvShow';
 import { SET_TV_SHOWS } from '../actions/itemKinds';
+import { Action } from '../interfaces';
 
-const initialState: any = [];
+const initialState: TVShow[] = [];
 
-const tvShowReducer = (state = initialState, action: any) => {
+const tvShowReducer = (state: TVShow[] = initialState, action: Action) => {
   switch (action.type) {
     case SET_TV_SHOWS:
       return action.payload;

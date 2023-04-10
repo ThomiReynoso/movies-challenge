@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 import { Item } from '../components/item/Item';
 import { ContainerGrid } from '../components/ContainerGrid';
 import { tvMovieListStyles } from './styles';
@@ -7,15 +7,18 @@ import { fetchPopularMovies, fetchPopularTvShows } from '../services/movie.servi
 import { useDispatch, useSelector } from 'react-redux';
 import { setItemKind, setMovies, setTVShows } from '../redux/actions/Index';
 import { ItemKind } from '../interfaces/itemKind.enum';
-
+import { TitleButtonList } from '../components/TitleButtonList';
+import { Movie } from '../interfaces/movie';
+import { TVShow } from '../interfaces/TvShow';
+import { ContextState } from '../redux/interfaces';
 
 const TvMovieList = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Movie[] | TVShow[]>([]);
   const dispatch = useDispatch();
-  const itemKind = useSelector((state) => state.itemKind);
-  const movies = useSelector((state) => state.movies);
-  const tvShows = useSelector((state) => state.tvShows);
+  const itemKind = useSelector((state: ContextState) => state.itemKind);
+  const movies = useSelector((state: ContextState) => state.movies);
+  const tvShows = useSelector((state: ContextState) => state.tvShows);
 
   async function getPopularMovies() {
     const moviesResponse = await fetchPopularMovies();
@@ -29,6 +32,7 @@ const TvMovieList = () => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     getPopularMovies();
     getPopularTVShows();
     dispatch(setItemKind(ItemKind.Kind.Movies));
@@ -47,12 +51,12 @@ const TvMovieList = () => {
   
   return (
     <>
-      {!isLoading &&
+      {isLoading ? <Skeleton startColor='gray.700' endColor='gray.100' height={'100vh'} fadeDuration={2} isLoaded={!isLoading}/> :
         <Box sx={tvMovieListStyles.boxContainer}>
-           <Button onClick={toggleList}>{ itemKind === ItemKind.Kind.Movies ? "List TV Shows" : "List Movies"}</Button>
+          <TitleButtonList itemKind={itemKind} toggleList={toggleList}/>
           <ContainerGrid>
-            {items.map((item) => (
-              <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
+            {items.map((item: any) => (
+              <Item key={item.id} name={item.title|| item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
             ))}
           </ContainerGrid>
         </Box>

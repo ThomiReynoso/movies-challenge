@@ -1,3 +1,5 @@
+import { Movie } from "../interfaces/movie";
+import { TVShow } from "../interfaces/TvShow";
 import { API_KEY, MOVIE_DETAIL, POPULAR_MOVIES, POPULAR_TV_SHOWS, TV_SHOW_DETAIL } from "../utils/constants";
 
 export async function fetchPopularMovies() {
@@ -22,22 +24,22 @@ export async function fetchPopularTvShows() {
     }
 }
 
-export async function fetchTvShow(id: number) {
+export async function fetchTvShow(id: string) {
     try {
       const response = await fetch(`${TV_SHOW_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar,credits`);
       if (response.ok) {
-        return await response.json();
+        return await response.json() as Promise<TVShow>;
       }
     } catch (error) {
       console.error('Error on fetching tv show', error);
     }
 }
 
-export async function fetchMovie(id: number) {
+export async function fetchMovie(id: string) {
     try {
       const response = await fetch(`${MOVIE_DETAIL}${id}?api_key=${API_KEY}&append_to_response=similar,credits`);
       if (response.ok) {
-        return await response.json();
+        return await response.json() as Promise<Movie>;
       }
     } catch (error) {
       console.error('Error on fetching tv show', error);

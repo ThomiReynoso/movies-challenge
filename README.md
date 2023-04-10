@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# Code challenge Movies & TV Shows
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este challenge representa una app donde se obtiene un listado de Movies y TV Shows inicialmente, donde se puede visualizar uno u otro listado con un boton. Luego, se puede acceder al detalle de cada uno clickeando en alguno de ellos. 
 
-## Available Scripts
+# Hosting de la app (Con Github Pages) 
+`https://thomireynoso.github.io/movies-challenge/`
 
-In the project directory, you can run:
+**IMPORTANTE: Por algún motivo de configuración de Github Pages (tiene que ver con el atributo `homepage` de `package.json`, el cual fue añadido para el setup de GH Pages) quedó mal la home inicial al cargar el proyecto (tanto en localhost como en server de GH). Por lo cual, al principio, solo se visualiza el Logo y un boton de `Home`. Si se clickea en cualquiera de estos 2, renderea al componente correcto y se puede navegar normalmente en toda la app.** 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Funcionalidades / Vistas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Listado de peliculas y TV shows (/)
 
-### `npm test`
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/26986556/231019992-82178c06-60c1-462d-8bb9-80a5e3890037.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Detalle de una pelicula o TV Show (/details/id)
+![image](https://user-images.githubusercontent.com/26986556/231020094-70026011-adc4-44b4-adb6-7581b2583611.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Manejo de estados
+- Se hace uso de `Redux` para almacenar la data obtenida de la API brindada (https://developers.themoviedb.org/3) y luego switchear entre ambos listados (Movies y Tv shows) a través de un action que se dispara al clickear un boton. 
+  
+### Tests
+- Se agregan tests de los componentes principales detallados en el PR #6, los cuales se pueden ejecutar con `npm test`
+ 
+### Levantar ambiente local 
+- Ejecutar `npm install` y `npm start`

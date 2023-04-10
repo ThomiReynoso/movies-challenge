@@ -8,15 +8,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setItemKind, setMovies, setTVShows } from '../redux/actions/Index';
 import { ItemKind } from '../interfaces/itemKind.enum';
 import { TitleButtonList } from '../components/TitleButtonList';
-
+import { Movie } from '../interfaces/movie';
+import { TVShow } from '../interfaces/TvShow';
+import { ContextState } from '../redux/interfaces';
 
 const TvMovieList = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Movie[] | TVShow[]>([]);
   const dispatch = useDispatch();
-  const itemKind = useSelector((state) => state.itemKind);
-  const movies = useSelector((state) => state.movies);
-  const tvShows = useSelector((state) => state.tvShows);
+  const itemKind = useSelector((state: ContextState) => state.itemKind);
+  const movies = useSelector((state: ContextState) => state.movies);
+  const tvShows = useSelector((state: ContextState) => state.tvShows);
 
   async function getPopularMovies() {
     const moviesResponse = await fetchPopularMovies();
@@ -52,7 +54,7 @@ const TvMovieList = () => {
         <Box sx={tvMovieListStyles.boxContainer}>
           <TitleButtonList itemKind={itemKind} toggleList={toggleList}/>
           <ContainerGrid>
-            {items.map((item) => (
+            {items.map((item: any) => (
               <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
             ))}
           </ContainerGrid>

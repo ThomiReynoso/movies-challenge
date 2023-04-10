@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Skeleton, Text } from '@chakra-ui/react';
 import { Item } from '../components/item/Item';
 import { ContainerGrid } from '../components/ContainerGrid';
 import { tvMovieListStyles } from './styles';
@@ -50,12 +50,12 @@ const TvMovieList = () => {
   
   return (
     <>
-      {!isLoading &&
+      {isLoading ? <Skeleton startColor='gray.700' endColor='gray.100' height={'100vh'} fadeDuration={2} isLoaded={!isLoading}/> :
         <Box sx={tvMovieListStyles.boxContainer}>
           <TitleButtonList itemKind={itemKind} toggleList={toggleList}/>
           <ContainerGrid>
             {items.map((item: any) => (
-              <Item key={item.id} name={item.title || item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
+              <Item key={item.id} name={item.title|| item.name} imageUrl={item.poster_path} rating={item.vote_average} totalReviews={item.vote_count} id={item.id} />
             ))}
           </ContainerGrid>
         </Box>

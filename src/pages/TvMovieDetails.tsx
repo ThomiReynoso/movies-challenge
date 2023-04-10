@@ -1,4 +1,4 @@
-import { Grid, GridItem, Image, Heading, Text, HStack, Box, List, ListItem } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Heading, Text, HStack, Box, List, ListItem, Skeleton } from '@chakra-ui/react'
 import { ExtraInfo } from '../components/ExtraInfo';
 import { Item } from '../components/item/Item';
 import { tvMovieDetailsStyles } from './styles'
@@ -40,7 +40,8 @@ const TvMovieDetails = () => {
 	
     return (
 			<>
-			{!isLoading &&
+			{isLoading ? <Skeleton startColor='gray.700' endColor='gray.100' height={'100vh'} fadeDuration={2} isLoaded={!isLoading}/> 
+				: (
 				<Box backgroundColor={"gray.50"} height={"100vh"}>
 					<Grid sx={tvMovieDetailsStyles.gridContainer} >
 						<GridItem area={'image'}>
@@ -78,7 +79,7 @@ const TvMovieDetails = () => {
 						</>
 					}
 				</Box>
-				}
+			)}
 			</>
     )
 }

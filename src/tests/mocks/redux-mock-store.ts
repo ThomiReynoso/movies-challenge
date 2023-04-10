@@ -1,9 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from '../../redux/reducers/index';
+import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store'; //ES6 modules
 
-export const mockStore = (initialState: any) => {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState: initialState,
-  });
-};
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+export default mockStore;

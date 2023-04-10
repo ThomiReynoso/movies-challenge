@@ -1,10 +1,10 @@
-import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import App from './App';
 import { ItemKind } from './interfaces/itemKind.enum';
-import { mockStore } from './tests/mocks/redux-mock-store';
+
 import { Provider } from 'react-redux';
 import { fetchPopularMovies, fetchPopularTvShows } from './tests/mocks/api-mock';
+import mockStore from './tests/mocks/redux-mock-store';
 
 jest.mock('./services/movie.service', () => ({
   fetchPopularMovies: () => fetchPopularMovies(),

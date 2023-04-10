@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/movies-challenge/static/css/main.073c9b0a.css",
+    "main.js": "/movies-challenge/static/js/main.76464cf7.js",
+    "static/js/787.f78f3bb5.chunk.js": "/movies-challenge/static/js/787.f78f3bb5.chunk.js",
+    "index.html": "/movies-challenge/index.html",
+    "main.073c9b0a.css.map": "/movies-challenge/static/css/main.073c9b0a.css.map",
+    "main.76464cf7.js.map": "/movies-challenge/static/js/main.76464cf7.js.map",
+    "787.f78f3bb5.chunk.js.map": "/movies-challenge/static/js/787.f78f3bb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.76464cf7.js"
+  ]
+}

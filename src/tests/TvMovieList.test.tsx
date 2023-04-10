@@ -29,6 +29,7 @@ test('renders TvMovieList and toggles between Movies and TV Shows', async () => 
     </Router>
   );
 
+  // With this we test the initial state render is ok
   expect(await screen.findByText('Movie 1')).toBeInTheDocument();
   expect(await screen.findByText('Movie 2')).toBeInTheDocument();
   expect(screen.getByText('List TV Shows')).toBeInTheDocument();

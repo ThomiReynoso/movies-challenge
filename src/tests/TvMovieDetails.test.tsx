@@ -101,4 +101,37 @@ describe('TvMovieDetails', () => {
     expect(screen.getByText('Actor 1, Actor 2')).toBeInTheDocument();
     });
 
-})
+
+	it('displays similar items', async () => {
+		const mockedMovieWithSimilar = {
+			...mockMovie,
+			similar: {
+				results: [{
+					id: 2,
+					title: 'Similar Movie 1',
+					poster_path: 'path/to/similar_movie1.jpg',
+					vote_average: 7.0,
+					vote_count: 800,
+				}]
+			},
+		};
+
+		(useParams as jest.Mock).mockReturnValue({ id: '1' });
+		(useSelector as jest.Mock).mockReturnValue(ItemKind.Kind.Movies);
+		(fetchMovie as jest.Mock).mockResolvedValue(mockedMovieWithSimilar);
+		(fetchTvShow as jest.Mock).mockResolvedValue(mockTvShow);
+
+		const store = mockStore({});
+
+		render(
+			<Router>
+				<Provider store={store}>
+					<TvMovieDetails />
+				</Provider>
+			</Router>
+		);
+
+		await waitFor(() => expect(screen.getByText('Similar Movie 1')).toBeInTheDocument());
+	})
+});
+

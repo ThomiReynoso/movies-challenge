@@ -16,7 +16,7 @@ export const ExtraInfo = ({voteAverage, totalVotes, runtime, releaseDate, genres
     <HStack divider={<StackDivider borderColor='gray.300' />} boxShadow={"lg"} padding={"0.5rem"} spacing={4} borderColor={"gray.300"} borderWidth={"thin"} rounded={"lg"}>
         <Rating rating={voteAverage} numReviews={totalVotes}/>
         {runtime && <Text>{toHoursAndMinutes(runtime)}</Text>}
-        <Text>{getYearFromDate(releaseDate)}</Text>
+        {releaseDate && <Text>{getYearFromDate(releaseDate)}</Text>}
         <Text>{genres.map(g => g.name).join(', ')}</Text>
         {amountSeasons && <Text>{amountSeasons} {amountSeasons === 1 ? "Season" : "Seasons"}</Text>}
     </HStack>

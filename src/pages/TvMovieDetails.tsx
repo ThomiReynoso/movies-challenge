@@ -65,8 +65,12 @@ const TvMovieDetails = () => {
 							</Text>
 						</GridItem>
 						<GridItem area={"actors"}>
-							<Text as={"span"} fontWeight={"bold"}>Actors:</Text>{' '}
-							{item.credits.cast.slice(0,MAX_ACTORS_SHOWED).map((cast: any) => (cast.name)).join(', ')}
+							{item.credits.cast.length > 0 && 
+								<>
+									<Text as={"span"} fontWeight={"bold"}>Actors:</Text>{' '}
+									{item.credits.cast.slice(0,MAX_ACTORS_SHOWED).map((cast: any) => (cast.name)).join(', ')}
+								</>
+							}
 						</GridItem>
 					</Grid>
 					{item.similar.results.length > 0 && 
